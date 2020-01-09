@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,7 +13,7 @@ String bearerAuthToken = 'Bearer ' + accessTokenString;
 
 class AppState with ChangeNotifier {
   AppState() {
-    getAccessToken();
+    // getAccessToken();
   }
 
   Future getAccessToken() async {
@@ -36,7 +37,7 @@ class AppState with ChangeNotifier {
 
   Future<http.Response> registerUrl() async {
     //Generate AccessToken
-    getAccessToken();
+    // getAccessToken();
     print(accessTokenString);
 
     const registerUrl =
@@ -255,17 +256,30 @@ class AppState with ChangeNotifier {
     return null;
   }
 
-  Future<String> photoUrl() async {
+  // String _url =
+  //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQON-tmu4hqTJv4EwFCnSVN1HtvTmFc4n3zO0mXEJ5WYbL360Qc&s';
+  // String get url => _url;
+
+  String _dispText = 'Hello World';
+  String get dispText => _dispText;
+
+  Future photoUrl() async {
+    sleep(Duration(seconds: 2));
     final response = await http.get(
       Uri.encodeFull('https://jsonplaceholder.typicode.com/photos'),
     );
     List data = json.decode(response.body);
-    print(response.body);
-    // print(data[3]);
-    print(data[3]['url']);
-    var photoUrlString = data[4]['url'];
+    // print(response.body);
+    // // print(data[3]);
+    // print(data[3]['url']);
+    String photoUrlString = data[4]['url'];
+        // 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewqq_EG54NCdQasL7nD2Z8NchelKDbTSP_8_CGhQzUggLr6-xJw&s';
+    
+    _dispText = photoUrlString;
+    // _url = photoUrlString;
+    // notifyListeners();
 
-    return photoUrlString;
+    // return photoUrlString;
   }
 
   // Future that() async {
