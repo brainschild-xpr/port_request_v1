@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:port_requests_v1/true_time.dart';
 import 'package:provider/provider.dart';
 import 'state/app_state.dart';
 
@@ -26,8 +25,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     AppState appState = AppState();
-    var url =
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQON-tmu4hqTJv4EwFCnSVN1HtvTmFc4n3zO0mXEJ5WYbL360Qc&s';
 
     return MaterialApp(
       home: Scaffold(

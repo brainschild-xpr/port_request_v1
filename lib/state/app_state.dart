@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:ntp/ntp.dart';
 
 const consumerKey = 'AG4FTGaTzmDV5VCc3bhfLD0jy3dJxgoR';
 const consumerSecret = '1dsNAZdtDnCGrfRK';
